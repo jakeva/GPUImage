@@ -714,8 +714,11 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
 
 #pragma mark -
 #pragma mark Accessors
-
-- (void)setAudioEncodingTarget:(GPUImageMovieWriter *)newValue;
+- (void)setAudioEncodingTarget:(GPUImageMovieWriter *)newValue
+{
+	[self setAudioEncodingTarget:newValue withAudioInput:nil];
+}
+- (void)setAudioEncodingTarget:(GPUImageMovieWriter *)newValue withAudioInput:(AVCaptureDevice*)microphone
 {
     runSynchronouslyOnVideoProcessingQueue(^{
         [_captureSession beginConfiguration];
@@ -732,15 +735,16 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
             }
         }
         else
-        {
-            _microphone = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
-            audioInput = [AVCaptureDeviceInput deviceInputWithDevice:_microphone error:nil];
+		{
+			_microphone = microphone ? microphone : [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+
+			audioInput = [AVCaptureDeviceInput deviceInputWithDevice:_microphone error:nil];
             if ([_captureSession canAddInput:audioInput])
             {
                 [_captureSession addInput:audioInput];
             }
             audioOutput = [[AVCaptureAudioDataOutput alloc] init];
-            
+
             if ([_captureSession canAddOutput:audioOutput])
             {
                 [_captureSession addOutput:audioOutput];
@@ -750,15 +754,15 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                 NSLog(@"Couldn't add audio output");
             }
             [audioOutput setSampleBufferDelegate:self queue:audioProcessingQueue];
-        }
-        
+		}
+
         [_captureSession commitConfiguration];
         
         [super setAudioEncodingTarget:newValue];
     });
 }
 
-- (void)updateOrientationSendToTargets;
+- (void)updateOrientationSendToTargets
 {
     runSynchronouslyOnVideoProcessingQueue(^{
         
@@ -786,7 +790,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
     [self updateOrientationSendToTargets];
 }
 
-- (void)printSupportedPixelFormats;
+- (void)printSupportedPixelFormats
 {
     NSArray *supportedPixelFormats = videoOutput.availableVideoCVPixelFormatTypes;
     for (NSNumber *currentPixelFormat in supportedPixelFormats)
