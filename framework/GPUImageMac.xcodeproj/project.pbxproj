@@ -1493,6 +1493,7 @@
 		BCA3F33217239B6500E28AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1501,6 +1502,7 @@
 				GCC_PREFIX_HEADER = "Source/Mac/GPUImageMac-Prefix.pch";
 				INFOPLIST_FILE = "Source/Mac/GPUImageMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "339699AA-4AC6-405D-A6A8-DAA1D8184383";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1508,6 +1510,7 @@
 		BCA3F33317239B6500E28AEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1516,6 +1519,7 @@
 				GCC_PREFIX_HEADER = "Source/Mac/GPUImageMac-Prefix.pch";
 				INFOPLIST_FILE = "Source/Mac/GPUImageMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C60AA128-1D8D-4F91-B4AD-0165E0EA992B";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
