@@ -331,6 +331,10 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
     }
 }
 
+- (BOOL)canSetSessionPreset:(NSString*)sessionPreset
+{
+  return [_captureSession canSetSessionPreset:sessionPreset];
+}
 #pragma mark -
 #pragma mark Managing targets
 
