@@ -79,6 +79,8 @@
 - (id)initWithSessionPreset:(NSString *)sessionPreset deviceUniqueID:(NSString *)deviceUniqueID;
 - (id)initWithSessionPreset:(NSString *)sessionPreset cameraDevice:(AVCaptureDevice *)cameraDevice;
 
+- (BOOL)canSetSessionPreset:(NSString*)sessionPreset;
+
 /** Tear down the capture session
  */
 - (void)removeInputsAndOutputs;
