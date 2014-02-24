@@ -1459,6 +1459,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jake Van Alstyne (79J82DKK35)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1476,6 +1477,7 @@
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "339699AA-4AC6-405D-A6A8-DAA1D8184383";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1492,6 +1494,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: EggDevil (A2MVZ4JVLC)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1502,6 +1505,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PROVISIONING_PROFILE = "C60AA128-1D8D-4F91-B4AD-0165E0EA992B";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1509,7 +1513,7 @@
 		BCA3F33217239B6500E28AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1518,7 +1522,7 @@
 				GCC_PREFIX_HEADER = "Source/Mac/GPUImageMac-Prefix.pch";
 				INFOPLIST_FILE = "Source/Mac/GPUImageMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "339699AA-4AC6-405D-A6A8-DAA1D8184383";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1526,7 +1530,7 @@
 		BCA3F33317239B6500E28AEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1535,7 +1539,7 @@
 				GCC_PREFIX_HEADER = "Source/Mac/GPUImageMac-Prefix.pch";
 				INFOPLIST_FILE = "Source/Mac/GPUImageMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C60AA128-1D8D-4F91-B4AD-0165E0EA992B";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
