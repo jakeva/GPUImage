@@ -705,10 +705,36 @@
     });
 }
 
+- (void)setAudioInput:(AVCaptureDevice *)microphone {
+  runSynchronouslyOnVideoProcessingQueue(^{
+    [_captureSession beginConfiguration];
+    _microphone = microphone ? microphone : [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+
+    audioInput = [AVCaptureDeviceInput deviceInputWithDevice:_microphone error:nil];
+    if ([_captureSession canAddInput:audioInput])
+    {
+      [_captureSession addInput:audioInput];
+    }
+    audioOutput = [[AVCaptureAudioDataOutput alloc] init];
+
+    if ([_captureSession canAddOutput:audioOutput])
+    {
+      [_captureSession addOutput:audioOutput];
+    }
+    else
+    {
+      NSLog(@"Couldn't add audio output");
+    }
+    [audioOutput setSampleBufferDelegate:self queue:audioProcessingQueue];
+
+    [_captureSession commitConfiguration];
+  });
+}
+
 - (void)updateOrientationSendToTargets
 {
     runSynchronouslyOnVideoProcessingQueue(^{
-        
+
         //    From the iOS 5.0 release notes:
         //    In previous iOS versions, the front-facing camera would always deliver buffers in AVCaptureVideoOrientationLandscapeLeft and the back-facing camera would always deliver buffers in AVCaptureVideoOrientationLandscapeRight.
                 

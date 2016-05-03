@@ -119,6 +119,8 @@
  */
 - (void)setAudioEncodingTarget:(GPUImageMovieWriter *)newValue withAudioInput:(AVCaptureDevice*)microphone;
 
+- (void)setAudioInput:(AVCaptureDevice *)microphone;
+
 /** Get the position (front, rear) of the source camera
  */
 - (AVCaptureDevicePosition)cameraPosition;
